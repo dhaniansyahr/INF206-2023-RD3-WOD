@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+
+const helpDataSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+}, { timestamps: true });
+
+module.exports = mongoose.model('helpData', helpDataSchema);
