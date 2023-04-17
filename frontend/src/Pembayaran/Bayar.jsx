@@ -1,34 +1,42 @@
-import { Link } from "react-router-dom"
-import Sidebar from "../dashboard/Sidebar";
+import InformasiBayar from "./InformasiBayar"
+import BackHome from "../dashboard/BackHome";
+import Menu from "../dashboard/Menu";
+import Profile from "../dashboard/Profile";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Bayar() {
     return (
-        <div>
-            <div className="text-black bg-white md:flex flex-row">
-                <div>
-                    <Sidebar />
-                </div>
-                <div className="grid grid-flow-row mx-44 my-56 px-36">
-                    <h1 className="font-bold text-3xl">Rincian Pembayaran</h1>
-                    <div>
-                        <p>Nama Driver : Arhan</p>
-                        <p>Jadwal Pengambilan Sampah : Senin, Rabu, Jumat</p>
-                        <p>Total Pembayaran : Rp.25.000</p>
-                        <p>Alamat : Jl. T Nyak Arief No. 441, Kopelma Darussalam, Kec. Syiah Kuala, Kota Banda</p>
-                        <button className="h-10 px-14 m-2 rounded-md float-right font-bold hover:bg-[#065F46] hover:bg-opacity-50">
-                            <Link to="/">Ganti</Link>
-                        </button>
-                    </div>
-                    <div className="text-right">
-                        <button className="h-10 px-14 m-2 rounded-md font-bold hover:bg-[#065F46] hover:bg-opacity-50">
-                            <Link to="/">COD</Link>
-                        </button>
-                        <button className="h-10 px-14 m-2 rounded-md font-bold hover:bg-[#065F46] hover:bg-opacity-50">
-                            <Link to="/">Cashless</Link>
-                        </button>
-                    </div>
-                </div>
+      <div className="bg-[#FFFFFF]">
+        <div className="drawer drawer-mobile">
+          <input
+            id="my-drawer-2"
+            type="checkbox"
+            className="drawer-toggle w-50"
+          />
+          <div className="drawer-content w-screen h-screen p-[30px]">
+            <label
+              htmlFor="my-drawer-2"
+              className="drawer-button lg:hidden wap swap-rotate flex align-start justify-start"
+            >
+              <GiHamburgerMenu size={20} className="fill-[#065f46]" />
+            </label>
+            <div className="bg-white h-screen md:mr-[256px]">
+              <InformasiBayar />
             </div>
+          </div>
+          <div className="drawer-side">
+            <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+            <div className="menu p-[10px] w-[256px] text-base-content bg-[#065f46]">
+              <h1 className="h-[80px] flex justify-center items-center text-[#fff] text-[24px] font-semibold hover:text-[#00C78A]">
+                Waste On Delivery
+              </h1>
+              <Profile className="text-[#000]" />
+              <Menu />
+              <BackHome />
+            </div>
+          </div>
         </div>
+      </div>
     );
-};
+  }
+  
