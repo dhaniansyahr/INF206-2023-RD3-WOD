@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function Info() {
+export default function InformasiBayar() {
     return (
         <div class="md:px-[56px] py-[16px] px-auto">
             <div class="bg-white p-[32px] rounded-lg shadow-lg relative">
