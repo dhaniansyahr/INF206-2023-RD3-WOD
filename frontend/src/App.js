@@ -9,6 +9,7 @@ import AboutUsPage from './pages/LandingPage/AboutUsPage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import Home from './pages/Home';
+import Pemesanan from "./pages/UserPage/Pemesanan";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path='/aboutus' element={<AboutUsPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/Signup' element={<SignUpPage />} />
+            <Route path="/pemesanan" element={<Pemesanan />} />
           </Routes>
         </div>
       </BrowserRouter>
