@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoTrashOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { WavyLink } from "react-wavy-transitions";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,24 +36,38 @@ const Navbar = () => {
         </div>
         {screenSize < 768 ? ( // add an HiMenu icon if screen width is less than md
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <IoMenuOutline size={20} color="white" />
+            <IoMenuOutline
+              size={20}
+              color="white"
+              className={`${isMenuOpen && "hidden"}`}
+            />
           </button>
         ) : (
           <div className="flex flex-row gap-20">
             <button className="text-2xl font-semibold font-serif hover:text-emerald-700 cursor-pointer text-white">
-              <Link to="/home">Home</Link>
+              <WavyLink to="/home" color="#065F46">
+                Home
+              </WavyLink>
             </button>
             <button className="text-2xl font-semibold font-serif hover:text-emerald-700 cursor-pointer text-white">
-              <Link to="/partnerwithus">Partner With Us</Link>
+              <WavyLink to="/partnerwithus" color="#065F46">
+                Partner With Us
+              </WavyLink>
             </button>
             <button className="text-2xl font-semibold font-serif hover:text-emerald-700 cursor-pointer text-white">
-              <Link to="/aboutus">About Us</Link>
+              <WavyLink to="/aboutus" color="#065F46">
+                About Us
+              </WavyLink>
             </button>
             <button className="text-2xl font-semibold font-serif hover:text-emerald-700 cursor-pointer text-white">
-              <Link to="/help">Help</Link>
+              <WavyLink to="/help" color="#065F46">
+                Help
+              </WavyLink>
             </button>
             <button className="text-2xl font-semibold font-serif hover:text-emerald-700 cursor-pointer text-white">
-              <Link to="/login">Login</Link>
+              <WavyLink to="/login" color="#065F46">
+                Login
+              </WavyLink>
             </button>
           </div>
         )}
@@ -66,19 +80,29 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col gap-10 items-center justify-center bg-emerald-800 h-screen">
               <button className="text-lg font-serif mb-2 hover:text-emerald-700 cursor-pointer">
-                <Link to="/">Home</Link>
+                <WavyLink to="/" color="#34D399">
+                  Home
+                </WavyLink>
               </button>
               <button className="text-lg font-serif mb-2 hover:text-emerald-700 cursor-pointer">
-                <Link to="/partnerwithus">Partner With Us</Link>
+                <WavyLink to="/partnerwithus" color="#34D399">
+                  Partner With Us
+                </WavyLink>
               </button>
               <button className="text-lg font-serif mb-2 hover:text-emerald-700 cursor-pointer">
-                <Link to="/aboutus">About Us</Link>
+                <WavyLink to="/aboutus" color="#34D399">
+                  About Us
+                </WavyLink>
               </button>
               <button className="text-lg font-serif mb-2 hover:text-emerald-700 cursor-pointer">
-                <Link to="/help">Help</Link>
+                <WavyLink to="/help" color="#34D399">
+                  Help
+                </WavyLink>
               </button>
               <button className="text-lg font-serif mb-2 hover:text-emerald-700 cursor-pointer">
-                <Link to="/login">Login</Link>
+                <WavyLink to="/login" color="#34D399">
+                  Login
+                </WavyLink>
               </button>
             </div>
           </div>
