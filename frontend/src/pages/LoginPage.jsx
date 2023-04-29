@@ -16,9 +16,9 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(email, password);
+    const res = await login(email, password);
     console.log(email, password);
-    if (!error) {
+    if (!res) {
       changePage("/Pemesanan");
     }
   };

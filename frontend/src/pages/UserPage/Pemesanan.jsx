@@ -12,7 +12,7 @@ const Pemesanan = () => {
   useEffect(() => {
     const fetchData = async () => {
       // Variable Response Untuk menampung datas dari localhost BE
-      const response = await fetch("/api/user/pemesanan/");
+      const response = await fetch("/api/wod/pemesanan");
       // Kemudian di Ubah menjadi Data JSON
       const json = await response.json();
 
@@ -34,8 +34,8 @@ const Pemesanan = () => {
   return (
     <div className="bg-white flex">
       <Sidebar />
-      <div className=" bg-white">
-        <div className="flex flex-col gap-5 items-center justify-center p-10">
+      <div className="w-screen h-screen">
+        <div className="flex flex-col gap-20 items-center justify-center p-10">
           {dataPemesanan &&
             dataPemesanan.map((data) => (
               <DataPemesanan
@@ -46,7 +46,7 @@ const Pemesanan = () => {
             ))}
         </div>
         <div>
-          {showModal && (
+          {showModal ? (
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                 <div className="relative w-auto my-6 mx-auto md:max-w-3xl max-w-2xl">
@@ -102,7 +102,7 @@ const Pemesanan = () => {
               </div>
               <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
             </>
-          )}
+          ) : null}
         </div>
       </div>
     </div>

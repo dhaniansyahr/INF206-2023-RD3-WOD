@@ -70,7 +70,7 @@ const Sidebar = () => {
                   </h1>
                 </div>
               </div>
-              <div className="h-fit flex items-center justify-center p-10">
+              <div className="h-[40rem] flex items-center justify-center p-10">
                 <div className="flex flex-col justify-center items-center h-full w-fit gap-9">
                   <div className="pb-5">
                     <BsArrowLeftShort size={20} color="black" />
