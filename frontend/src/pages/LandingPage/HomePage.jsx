@@ -48,12 +48,12 @@ const HomePage = () => {
         </div>
       </div>
       <ImageSlider />
-      <div className="bg-emerald-800 w-full h-screen flex flex-col gap-5 pt-32">
+      <div className="bg-emerald-800 w-full h-full flex flex-col gap-5 py-14">
         <h1 className="text-center md:text-6xl font-serif font-bold text-black text-3xl">
           Kenapa WOD?
         </h1>
-        <div className="flex flex-col md:flex-row gap-16 md:gap-60 items-center justify-center w-full h-full">
-          <div className="flex flex-col gap-16 md:gap-56">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-60 items-center justify-center w-full h-full">
+          <div className="flex flex-col gap-10 md:gap-56">
             <div className="bg-white opacity-80 w-80 md:w-[40rem] h-40 md:h-[20rem] rounded-xl flex flex-col gap-4 md:gap-8 items-center justify-center">
               <SecurityIcon />
               <h1 className=" text-lg md:text-2xl font-serif font-semibold">
@@ -67,7 +67,7 @@ const HomePage = () => {
               </h1>
             </div>
           </div>
-          <div className="flex flex-col gap-16 md:gap-56">
+          <div className="flex flex-col gap-10 md:gap-56">
             <div className="bg-white w-80 md:w-[40rem] h-40 md:h-[20rem] opacity-80 rounded-xl flex flex-col gap-4 md:gap-8 items-center justify-center">
               <JadwalIcon />
               <h1 className=" text-lg md:text-2xl font-serif font-semibold">
