@@ -16,7 +16,13 @@ const userSchema = new Schema({
     password: {
         type: String,
         require: true
-    }
+    },
+    no_hp: {
+        type: String
+    },
+    alamat: {
+        type: String
+    },
 }, { timestamps: true })
 
 // Static method to Register User
