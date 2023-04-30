@@ -7,6 +7,7 @@ const router = express.Router();
 
 // Get All Data
 router.get('/pemesanan', getPemesananData)
+
 router.get('/pembayaran', getPembayaranData)
 router.get('/help/', getHelpData)
 
@@ -29,6 +30,5 @@ router.post('/help', postHelpData)
 
 // GET Single Data Help
 router.get('/help/:id', getHelpDataId)
-
 
 module.exports = router;
