@@ -13,6 +13,8 @@ import Pemesanan from './pages/UserPage/Pemesanan';
 import AkunSaya from './pages/UserPage/AkunSaya';
 import InformasiPemesanan from './pages/UserPage/InformasiPemesanan';
 import Pembayaran from './pages/UserPage/Pembayaran';
+import RincianPembayaran from './pages/UserPage/RincianPembayaran';
+
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
           <Route path='/akun-saya' element={<AkunSaya />} />
           <Route path='/informasi-pemesanan' element={<InformasiPemesanan />} />
           <Route path='/pembayaran' element={<Pembayaran />} />
+          <Route path='/rincian-pembayaran' element={<RincianPembayaran />} />
 
         </Routes>
       </BrowserRouter >
