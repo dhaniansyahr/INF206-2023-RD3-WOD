@@ -10,7 +10,7 @@ const DataPembayaran = ({ data }) => {
       <div className="flex items-center justify-end">
         <WavyLink to={"/rincian-pembayaran"} color="#065F46">
           <button class="bg-emerald-700 w-36 rounded-xl h-10 font-poppins font-medium text-black hover:bg-emerald-400">
-            Order Now
+            Bayar
           </button>
         </WavyLink>
       </div>
