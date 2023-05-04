@@ -13,6 +13,8 @@ import Pemesanan from './pages/UserPage/Pemesanan';
 import AkunSaya from './pages/UserPage/AkunSaya';
 import InformasiPemesanan from './pages/UserPage/InformasiPemesanan';
 import Pembayaran from './pages/UserPage/Pembayaran';
+import PemesananDriver from "./pages/DriverPage/Pemesanan";
+import RiwayatPemesananDriver from "./pages/DriverPage/RiwayatPemesananDriver";
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
           <Route path='/akun-saya' element={<AkunSaya />} />
           <Route path='/informasi-pemesanan' element={<InformasiPemesanan />} />
           <Route path='/pembayaran' element={<Pembayaran />} />
+          <Route path="/pemesanan-driver" element={<PemesananDriver />} />
+          <Route path="/riwayat-driver" element={<RiwayatPemesananDriver />} />  
 
         </Routes>
       </BrowserRouter >
