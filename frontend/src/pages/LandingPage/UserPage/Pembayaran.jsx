@@ -17,7 +17,7 @@ const Pembayaran = () => {
       // Kemudian di Ubah menjadi Data JSON
       const json = await response.json();
 
-      // Jika Response OK maka datas akan di set
+      // Jika REsponse OK maka datas akan di set
       if (response.ok) {
         dispatch({ type: "SET_DATAPEMBAYARAN", payload: json });
       }
