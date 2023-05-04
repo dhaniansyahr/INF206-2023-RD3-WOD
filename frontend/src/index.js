@@ -5,6 +5,7 @@ import App from './App';
 import { HelpDataContextProvider } from './context/HelpDataContext';
 import { DataPemesananContextProvider } from './context/DataPemesananContext';
 import { AuthContextProvider } from './context/AuthContext';
+import { DataPembayaranContextProvider } from './context/DataPembayaranContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,9 @@ root.render(
     <AuthContextProvider>
       <HelpDataContextProvider>
         <DataPemesananContextProvider>
-          <App />
+          <DataPembayaranContextProvider>
+            <App />
+          </DataPembayaranContextProvider>
         </DataPemesananContextProvider>
       </HelpDataContextProvider>
     </AuthContextProvider>

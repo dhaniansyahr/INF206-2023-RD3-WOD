@@ -1,6 +1,9 @@
 const User = require('../models/userModel');
 const Help = require('../models/helpData');
 const Pemesanan = require('../models/pemesananData');
+
+const Pembayaran = require('../models/pembayaranData');
+
 const mongoose = require('mongoose');
 const { faker } = require('@faker-js/faker')
 
@@ -9,6 +12,12 @@ const getPemesananData = async (req, res) => {
     const dataUser = await Pemesanan.find({}).sort({ createdAt: -1 })
 
     res.status(200).json(dataUser)
+}
+
+const getPembayaranData = async (req, res) => {
+    const pembayaranData = await Pembayaran.find({}).sort({ created: -1 })
+
+    res.status(200).json(pembayaranData)
 }
 
 // Get a Single Data User
@@ -99,6 +108,7 @@ const updateDataUser = async (req, res) => {
 
 module.exports = {
     getPemesananData,
+    getPembayaranData,
     getDataUserId,
     createDataUser,
     deleteDataUser,

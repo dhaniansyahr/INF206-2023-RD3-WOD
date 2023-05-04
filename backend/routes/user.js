@@ -1,7 +1,18 @@
 const express = require('express')
 
 // Controller Function
-const { signupUser, loginUser, updateDataUser, getDataUserById, getAllDataUser, getPemesananData, postPemesananData } = require('../controllers/userContorller')
+const {
+    signupUser,
+    loginUser,
+    updateDataUser,
+    getDataUserById,
+    getAllDataUser,
+    getPemesananData,
+    postPemesananData,
+    signupDriver,
+} = require('../controllers/userContorller')
+
+const { getPembayaranData, postPembayaranData } = require('../controllers/pembayaranController')
 
 
 
@@ -12,6 +23,9 @@ router.post('/login', loginUser)
 
 // Signup Route
 router.post('/signup', signupUser)
+
+// Signup Route
+router.post('/signup-driver', signupDriver)
 
 // Update Data User 
 router.patch('/:id', updateDataUser)
@@ -27,5 +41,11 @@ router.get('/pemesanan/', getPemesananData);
 
 // POST Data Pemesanan
 router.post('/pemesanan', postPemesananData)
+
+// GET All Data Pembayaran
+router.get('/pembayaran/', getPembayaranData);
+
+// POST Data Pembayaran
+router.post('/pembayaran', postPembayaranData)
 
 module.exports = router

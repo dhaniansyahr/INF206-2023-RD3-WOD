@@ -20,7 +20,7 @@ const loginUser = async (req, res) => {
         // Create Token After Save to the DB
         const token = createToken(user._id)
 
-        res.status(200).json({ email, nama: user.nama, id: user._id, no_hp: user.no_hp, alamat: user.alamat, token })
+        res.status(200).json({ email, nama: user.nama, id: user._id, no_hp: user.no_hp, alamat: user.alamat, role: user.role, token })
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -28,19 +28,36 @@ const loginUser = async (req, res) => {
 
 // Register User
 const signupUser = async (req, res) => {
-    const { nama, email, password } = req.body;
+    const { nama, email, password, role } = req.body;
 
     try {
-        const user = await User.signupUser(nama, email, password)
+        const user = await User.signupUser(nama, email, password, role)
 
         // Create Token After Save to the DB
         const token = createToken(user._id)
 
-        res.status(200).json({ nama, email })
+        res.status(200).json({ nama, email, role })
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
 }
+
+const signupDriver = async (req, res) => {
+    const { nama, email, password, role, no_hp, alamat, tempat_lahir, tanggal_lahir, KTP, SIM, STNK, SKCK } = req.body;
+
+    try {
+        const user = await User.signupDriver(nama, email, password, role, no_hp, alamat, tempat_lahir, tanggal_lahir, KTP, SIM, STNK, SKCK)
+
+        // Create Token After Save to the DB
+        const token = createToken(user._id)
+
+        res.status(200).json({ nama, email, role })
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+}
+
+
 
 // Get All Data User
 const getAllDataUser = async (req, res) => {
@@ -146,5 +163,6 @@ module.exports = {
     getDataUserById,
     getAllDataUser,
     getPemesananData,
-    postPemesananData
+    postPemesananData,
+    signupDriver
 }
