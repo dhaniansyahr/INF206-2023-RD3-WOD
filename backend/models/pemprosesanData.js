@@ -1,28 +1,27 @@
 const mongoose = require('mongoose')
 
-const pembayaranDataSchema = new mongoose.Schema({
-    namaTempat: {
-        type: String,
-        required: true
-    },
-    deskripsiTempat: {
+const pemprosesanDataSchema = new mongoose.Schema({
+    namaUser: {
         type: String,
     },
     namaDriver: {
         type: String,
     },
-    harga: {
-        type: String,
-    },
-    namaUser: {
-        type: String,
-    },
     alamatUser: {
+        type: String,
+    },
+    alamat: {
+        type: String,
+    },
+    harga: {
         type: String,
     },
     metodePembayaran: {
         type: String,
     },
+    status: {
+        type: String,
+    },
 }, { timestamps: true })
 
-module.exports = mongoose.model('pembayaranData', pembayaranDataSchema);
+module.exports = mongoose.model('pemprosesanData', pemprosesanDataSchema);
