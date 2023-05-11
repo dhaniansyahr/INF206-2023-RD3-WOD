@@ -28,7 +28,6 @@ const HelpDataDetail = ({ helpdatas }) => {
                 {helpdatas.password}
             </p>
             <p className="m-0 text-base text-gray-500 leading-10">{helpdatas.createdAt}</p>
-            <button className="bg-gray-600 text-white font-bold font-sans text-center text-base rounded-lg w-32" onClick={handleClick}>Delete</button>
         </div>
     );
 };

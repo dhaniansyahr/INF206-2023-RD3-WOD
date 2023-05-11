@@ -1,15 +1,21 @@
 const express = require('express');
-const { getDataUser, getDataUserId, createDataUser, deleteDataUser, updateDataUser } = require('../controllers/dataController');
+const { getPemesananData, getPembayaranData, getDataUserId, createDataUser, deleteDataUser, updateDataUser } = require('../controllers/dataController');
 const { getHelpData, postHelpData, getHelpDataId } = require('../controllers/helpController');
+const { getPemprosesan, getPemprosesanByName } = require('../controllers/pemprosesanController')
+
 
 const router = express.Router();
 
 // Get All Data
-router.get('/', getDataUser)
+router.get('/pemesanan', getPemesananData)
+router.get('/pembayaran', getPembayaranData)
+router.get('/pemprosesan', getPemprosesan)
 router.get('/help/', getHelpData)
 
 // GET Single Data
 router.get('/:id', getDataUserId)
+router.get('/pemprosesan/:namaDriver', getPemprosesanByName)
+
 
 // POST a new Data
 router.post('/', createDataUser)
@@ -27,5 +33,6 @@ router.post('/help', postHelpData)
 
 // GET Single Data Help
 router.get('/help/:id', getHelpDataId)
+
 
 module.exports = router;
