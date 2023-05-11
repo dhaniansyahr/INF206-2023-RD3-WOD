@@ -70,58 +70,145 @@ const Sidebar = () => {
                   </h1>
                 </div>
               </div>
-              <div className="h-[40rem] flex items-center justify-center p-10">
-                <div className="flex flex-col justify-center items-center h-full w-fit gap-9">
-                  <div className="pb-5">
-                    <BsArrowLeftShort size={20} color="black" />
-                  </div>
-                  <div className="rotate-90">
-                    <button className=" text-base text-black font-medium font-poppins">
+              {user.role === "user" ? (
+                <div className="h-full flex items-center justify-center p-10">
+                  <div className="flex flex-col justify-center items-center h-full w-fit gap-9">
+                    <div className="pb-5">
+                      <BsArrowLeftShort size={20} color="black" />
+                    </div>
+                    <div className="rotate-90">
                       <WavyLink to="/home" color="#065F46">
-                        Back to Home
+                        <button className=" text-base text-black font-medium font-poppins">
+                          Back to Home
+                        </button>
                       </WavyLink>
-                    </button>
+                    </div>
                   </div>
-                </div>
-                <div className="w-fit h-full flex flex-col gap-5 items-start justify-center">
-                  <div>
-                    <button className="text-lg text-black font-medium font-poppins">
+                  <div className="w-fit h-full flex flex-col gap-5 items-start justify-center">
+                    <div>
                       <WavyLink to="/pemesanan" color="#ffffff">
-                        Pemesanan
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Pemesanan
+                        </button>
                       </WavyLink>
-                    </button>
-                  </div>
-                  <div>
-                    <button className="text-lg text-black font-medium font-poppins">
+                    </div>
+                    <div>
                       <WavyLink to="/akun-saya" color="#065F46">
-                        Akun Saya
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Akun Saya
+                        </button>
                       </WavyLink>
-                    </button>
-                  </div>
-                  <div>
-                    <button className="text-lg text-left text-black font-medium font-poppins">
+                    </div>
+                    <div>
                       <WavyLink to="/informasi-pemesanan" color="#ffffff">
-                        Informasi <br /> Pemesanan
+                        <button className="text-lg text-left text-black font-medium font-poppins">
+                          Informasi <br /> Pemesanan
+                        </button>
                       </WavyLink>
-                    </button>
-                  </div>
-                  <div>
-                    <button className="text-lg text-black font-medium font-poppins">
+                    </div>
+                    <div>
                       <WavyLink to="/pembayaran" color="#065F46">
-                        Pembayaran
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Pembayaran
+                        </button>
                       </WavyLink>
-                    </button>
-                  </div>
-                  <div>
-                    <button
-                      className="text-lg text-black font-medium font-poppins"
-                      onClick={handleClick}
-                    >
-                      Log Out
-                    </button>
+                    </div>
+                    <div>
+                      <button
+                        className="text-lg text-black font-medium font-poppins"
+                        onClick={handleClick}
+                      >
+                        Log Out
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : user.role === "admin" ? (
+                <div className="h-full flex items-center justify-center p-10">
+                  <div className="flex flex-col justify-center items-center h-full w-fit gap-9">
+                    <div className="pb-5">
+                      <BsArrowLeftShort size={20} color="black" />
+                    </div>
+                    <div className="rotate-90">
+                      <WavyLink to="/home" color="#065F46">
+                        <button className=" text-base text-black font-medium font-poppins">
+                          Back to Home
+                        </button>
+                      </WavyLink>
+                    </div>
+                  </div>
+                  <div className="w-fit h-full flex flex-col gap-5 items-start justify-center">
+                    <div>
+                      <WavyLink to="/dashboard" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Dashboard
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <button
+                        className="text-lg text-black font-medium font-poppins"
+                        onClick={handleClick}
+                      >
+                        Log Out
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : user.role === "driver" ? (
+                <div className="h-full flex items-center justify-center p-10">
+                  <div className="flex flex-col justify-center items-center h-full w-fit gap-9">
+                    <div className="pb-5">
+                      <BsArrowLeftShort size={20} color="black" />
+                    </div>
+                    <div className="rotate-90">
+                      <WavyLink to="/home" color="#065F46">
+                        <button className=" text-base text-black font-medium font-poppins">
+                          Back to Home
+                        </button>
+                      </WavyLink>
+                    </div>
+                  </div>
+                  <div className="w-fit h-full flex flex-col gap-5 items-start justify-center">
+                    <div>
+                      <WavyLink to="/pemesanan-driver" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Pemesanan
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/pemrosesan-driver" color="#065F46">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Pemrosesan
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/riwayat-driver" color="#065F46">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Riwayat
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/akunSaya-driver" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Akun Saya
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <button
+                        className="text-lg text-black font-medium font-poppins"
+                        onClick={handleClick}
+                      >
+                        Log Out
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
             </>
           )}
           {isMenuOpen && ( // show the menu if the HiMenu icon is clicked
@@ -150,64 +237,161 @@ const Sidebar = () => {
                   </h1>
                 </div>
               </div>
-              <div className="h-fit w-full flex items-start justify-center p-10">
-                <div className=" w-fit h-full flex items-center justify-center py-10">
-                  <div className="flex flex-col justify-center items-center gap-9">
-                    <div className="">
+              {user.role === "user" ? (
+                <div className="h-full flex items-center justify-center p-10">
+                  <div className="flex flex-col justify-center items-center h-full w-fit gap-9">
+                    <div className="pb-5">
                       <BsArrowLeftShort size={20} color="black" />
                     </div>
-                    <div className="rotate-90 w-full h-fit">
-                      <button className=" text-base text-black font-medium font-poppins">
-                        <WavyLink to="/home" color="#065F46">
+                    <div className="rotate-90">
+                      <WavyLink to="/home" color="#065F46">
+                        <button className=" text-base text-black font-medium font-poppins">
                           Back to Home
-                        </WavyLink>
+                        </button>
+                      </WavyLink>
+                    </div>
+                  </div>
+                  <div className="w-fit h-full flex flex-col gap-5 items-start justify-center">
+                    <div>
+                      <WavyLink to="/pemesanan" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Pemesanan
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/akun-saya" color="#065F46">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Akun Saya
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/informasi-pemesanan" color="#ffffff">
+                        <button className="text-lg text-left text-black font-medium font-poppins">
+                          Informasi <br /> Pemesanan
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/pembayaran" color="#065F46">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Pembayaran
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <button
+                        className="text-lg text-black font-medium font-poppins"
+                        onClick={handleClick}
+                      >
+                        Log Out
                       </button>
                     </div>
                   </div>
                 </div>
-                <div className="w-full h-full flex flex-col gap-5 items-start justify-center">
-                  <div>
-                    <button className="text-sm text-black font-medium font-poppins">
-                      <WavyLink to="/pemesanan" color="#ffffff">
-                        Pemesanan
+              ) : user.role === "admin" ? (
+                <div className="h-full flex items-center justify-center p-10">
+                  <div className="flex flex-col md:justify-center justify-start items-center h-full w-fit gap-9">
+                    <div className="pb-5">
+                      <BsArrowLeftShort size={20} color="black" />
+                    </div>
+                    <div className="rotate-90">
+                      <WavyLink to="/home" color="#065F46">
+                        <button className=" text-base text-black font-medium font-poppins">
+                          Back to Home
+                        </button>
                       </WavyLink>
-                    </button>
+                    </div>
                   </div>
-                  <div>
-                    <button className="text-sm text-black font-medium font-poppins">
-                      <WavyLink to="/akun-saya" color="#065F46">
-                        Akun Saya
+                  <div className="w-fit h-full flex flex-col mt-20 gap-5 items-start justify-start md:justify-center">
+                    <div>
+                      <WavyLink to="/dashboard" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Dashboard
+                        </button>
                       </WavyLink>
-                    </button>
-                  </div>
-                  <div>
-                    <button className="text-sm text-black font-medium font-poppins">
-                      <WavyLink to="/informasi-pemesanan" color="#ffffff">
-                        Informasi Pemesanan
-                      </WavyLink>
-                    </button>
-                  </div>
-                  <div>
-                    <button className="text-sm text-black font-medium font-poppins">
-                      <WavyLink to="/pembayaran" color="#065F46">
-                        Pembayaran
-                      </WavyLink>
-                    </button>
-                  </div>
-                  <div>
-                    <button
-                      className="text-sm text-black font-medium font-poppins"
-                      onClick={handleClick}
-                    >
-                      Log Out
-                    </button>
+                    </div>
+                    <div>
+                      <button
+                        className="text-lg text-black font-medium font-poppins"
+                        onClick={handleClick}
+                      >
+                        Log Out
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : user.role === "driver" ? (
+                <div className="h-full flex items-center justify-center p-10">
+                  <div className="flex flex-col justify-center items-center h-full w-fit gap-9">
+                    <div className="pb-5">
+                      <BsArrowLeftShort size={20} color="black" />
+                    </div>
+                    <div className="rotate-90">
+                      <WavyLink to="/home" color="#065F46">
+                        <button className=" text-base text-black font-medium font-poppins">
+                          Back to Home
+                        </button>
+                      </WavyLink>
+                    </div>
+                  </div>
+                  <div className="w-fit h-full flex flex-col gap-5 items-start justify-center">
+                    <div>
+                      <WavyLink to="/pemesanan-driver" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Pemesanan
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/pemrosesan-driver" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Pemrosesan
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/riwayat-driver" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Riwayat
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <WavyLink to="/akunSaya-driver" color="#ffffff">
+                        <button className="text-lg text-black font-medium font-poppins">
+                          Akun Saya
+                        </button>
+                      </WavyLink>
+                    </div>
+                    <div>
+                      <button
+                        className="text-lg text-black font-medium font-poppins"
+                        onClick={handleClick}
+                      >
+                        Log Out
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
             </div>
           )}
         </div>
       )}
+      <div className="w-full h-fit p-5 fixed bottom-0">
+        {user && user.role === "driver" ? (
+          <div className="flex flex-col gap-5 items-start justify-center">
+            <h1 className="text-black font-poppins font-medium text-xl">
+              Status : Online
+            </h1>
+            <h1 className="text-black font-poppins font-medium text-xl">
+              Lokasi : {user.tempatKerja}
+            </h1>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };
