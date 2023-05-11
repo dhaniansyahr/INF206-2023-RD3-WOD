@@ -58,7 +58,7 @@ const Dashboard = () => {
           />
           <div className="flex items-center justify-end w-full">
             <button className="max-w-[100px] bg-[#065f46] text-[#E2F1FF] cursor-pointer text-[14px] font-medium tracking-wide transition duration-500 p-[10px] w-full my-2 hover:bg-white hover:text-emerald-800">
-              Sign Up
+              Tambah Data
             </button>
           </div>
         </form>
