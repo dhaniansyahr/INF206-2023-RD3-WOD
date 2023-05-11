@@ -1,28 +1,30 @@
 import Sidebar from "../../components/Sidebar";
-import DataPemesanan from "../../components/User/DataPemesanan";
+import DataPemrosesan from "../../components/Driver/DataPemrosesan";
 
-import { useEffect, useState } from "react";
-import { useDataPemesanan } from "../../hooks/useDataPemesanan";
+import { useState, useEffect } from "react";
+import { useDataPemprosesan } from "../../hooks/useDataPemprosesan";
 
-const Pemesanan = () => {
-  const { dataPemesanan, dispatch } = useDataPemesanan();
+const Pemrosesan = () => {
   const [showModal, setShowModal] = useState(false);
+  const { dataPemprosesan, dispatch } = useDataPemprosesan();
 
-  // Fungsi Untuk mem Fetching datas dari DB ke FE
+  const getDataLocalStorage = () => {
+    const data = localStorage.getItem("user");
+    const dataParse = JSON.parse(data);
+    return dataParse;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
-      // Variable Response Untuk menampung datas dari localhost BE
-      const response = await fetch("/api/wod/pemesanan");
-      // Kemudian di Ubah menjadi Data JSON
+      const namaDriver = getDataLocalStorage().nama;
+      const response = await fetch("/api/wod/pemprosesan/" + namaDriver);
       const json = await response.json();
 
-      // Jika REsponse OK maka datas akan di set
       if (response.ok) {
-        dispatch({ type: "SET_DATAPEMESANAN", payload: json });
+        dispatch({ type: "SET_DATAPEMPROSESAN", payload: json });
       }
     };
 
-    // Call FUnction Fetch Data
     fetchData();
     // eslint-disable-next-line
   }, []);
@@ -31,14 +33,16 @@ const Pemesanan = () => {
     setShowModal(true);
   };
 
+  console.log(dataPemprosesan);
+
   return (
-    <div className="bg-white flex">
+    <div className="bg-emerald-800 flex">
       <Sidebar />
       <div className="w-screen h-screen overflow-y-scroll">
-        <div className="flex flex-col gap-20 items-center justify-center p-10 w-full">
-          {dataPemesanan &&
-            dataPemesanan.map((data) => (
-              <DataPemesanan
+        <div className="flex flex-col gap-20 items-center justify-center p-10">
+          {dataPemprosesan &&
+            dataPemprosesan.map((data) => (
+              <DataPemrosesan
                 key={data._id}
                 data={data}
                 handleShowModal={handleShowModal}
@@ -92,8 +96,7 @@ const Pemesanan = () => {
                           ></path>
                         </svg>
                         <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                          Terima Kasih Telah Memesan Orderan Ini <br /> Silahkan
-                          Tunggu untuk Konfirmasi Driver.
+                          Pesanan Telah Dikonfirmasi
                         </h3>
                       </div>
                     </div>
@@ -109,4 +112,4 @@ const Pemesanan = () => {
   );
 };
 
-export default Pemesanan;
+export default Pemrosesan;

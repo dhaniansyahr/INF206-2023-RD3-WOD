@@ -14,6 +14,9 @@ const {
 
 const { getPembayaranData, postPembayaranData } = require('../controllers/pembayaranController')
 
+const { getPesanDataByTempatKerja, postPesanData, getPesanDataByName } = require('../controllers/dataPesanController')
+
+const { getPemprosesan, postPemprosesan, updatePemprosesan, getPemprosesanByName, getRiwayatByName } = require('../controllers/pemprosesanController')
 
 
 const router = express.Router()
@@ -47,5 +50,23 @@ router.get('/pembayaran/', getPembayaranData);
 
 // POST Data Pembayaran
 router.post('/pembayaran', postPembayaranData)
+
+// GET Data Pesan By Tempat Kerja
+router.get('/pesan/:tempatKerja', getPesanDataByTempatKerja);
+router.get('/pesan-nama/:nama', getPesanDataByName);
+
+// POST Data Pesan
+router.post('/pesan', postPesanData)
+
+// GET Data Pemprosesan
+router.get('/pemprosesan/', getPemprosesan);
+router.get('/pemprosesan/:namaUser', getPemprosesanByName)
+router.get('/riwayat-pemesanan/:namaDriver', getRiwayatByName)
+
+// POST Data Pemprosesan
+router.post('/pemprosesan', postPemprosesan)
+
+// UPDATE Data Pemprosesan
+router.patch('/pemprosesan/:namaUser', updatePemprosesan)
 
 module.exports = router
