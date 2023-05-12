@@ -59,15 +59,5 @@ router.get('/pesan-nama/:nama', getPesanDataByName);
 // POST Data Pesan
 router.post('/pesan', postPesanData)
 
-// GET Data Pemprosesan
-router.get('/pemprosesan/', getPemprosesan);
-router.get('/pemprosesan/:namaUser', getPemprosesanByName)
-router.get('/riwayat-pemesanan/:namaDriver', getRiwayatByName)
-
-// POST Data Pemprosesan
-router.post('/pemprosesan', postPemprosesan)
-
-// UPDATE Data Pemprosesan
-router.patch('/pemprosesan/:namaUser', updatePemprosesan)
 
 module.exports = router
