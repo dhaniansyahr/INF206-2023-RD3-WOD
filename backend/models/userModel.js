@@ -34,6 +34,12 @@ const userSchema = new Schema({
     tanggal_lahir: {
         type: String
     },
+    tempatKerja: {
+        type: String
+    },
+    harga: {
+        type: String
+    },
     KTP: {
         type: String
     },
@@ -78,10 +84,10 @@ userSchema.statics.signupUser = async function (nama, email, password, role) {
 }
 
 // Static method to Register Driver
-userSchema.statics.signupDriver = async function (nama, email, password, role, no_hp, alamat, tempat_lahir, tanggal_lahir, KTP, SIM, STNK, SKCK) {
+userSchema.statics.signupDriver = async function (nama, email, password, role, no_hp, alamat, tempat_lahir, tanggal_lahir, tempatKerja, harga, KTP, SIM, STNK, SKCK) {
 
     // Validation
-    if (!email || !password || !no_hp || !alamat || !tempat_lahir || !tanggal_lahir || !KTP || !SIM || !STNK || !SKCK) {
+    if (!email || !password || !no_hp || !alamat || !tempat_lahir || !tanggal_lahir || !tempatKerja || !harga || !KTP || !SIM || !STNK || !SKCK) {
         throw Error('All Must be Filled!')
     }
     if (!validator.isEmail(email)) {
@@ -101,7 +107,7 @@ userSchema.statics.signupDriver = async function (nama, email, password, role, n
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, salt)
 
-    const user = await this.create({ nama, email, password: hash, role, no_hp, alamat, tempat_lahir, tanggal_lahir, KTP, SIM, STNK, SKCK })
+    const user = await this.create({ nama, email, password: hash, role, no_hp, alamat, tempat_lahir, tanggal_lahir, tempatKerja, harga, KTP, SIM, STNK, SKCK })
 
     return user
 }

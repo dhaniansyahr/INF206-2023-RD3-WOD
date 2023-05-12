@@ -1,21 +1,57 @@
 import Sidebar from "../../components/Sidebar";
 import DataPemesanan from "../../components/Driver/DataPemesanan";
+import { useDataPemesanan } from "../../hooks/useDataPemesanan.js";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Pemesanan = () => {
-  const [showModal, setShowModal] = useState(false);
+  const getDataLocalStorage = () => {
+    const data = localStorage.getItem("user");
+    const dataParse = JSON.parse(data);
+    return dataParse;
+  };
 
   const handleShowModal = () => {
     setShowModal(true);
   };
 
+  const { dataPemesanan, dispatch } = useDataPemesanan();
+  const [showModal, setShowModal] = useState(false);
+
+  // Fungsi Untuk mem Fetching datas dari DB ke FE
+  useEffect(() => {
+    const fetchData = async () => {
+      // Variable Response Untuk menampung datas dari localhost BE
+      const response = await fetch(
+        "api/user/pesan/" + getDataLocalStorage().tempatKerja
+      );
+      // Kemudian di Ubah menjadi Data JSON
+      const json = await response.json();
+
+      // Jika REsponse OK maka datas akan di set
+      if (response.ok) {
+        dispatch({ type: "SET_DATAPEMESANAN", payload: json });
+      }
+    };
+
+    // Call FUnction Fetch Data
+    fetchData();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="bg-white flex">
       <Sidebar />
-      <div className="w-screen h-screen">
+      <div className="w-screen h-screen overflow-y-scroll">
         <div className="flex flex-col gap-20 items-center justify-center p-10">
-          <DataPemesanan handleShowModal={handleShowModal} />
+          {dataPemesanan &&
+            dataPemesanan.map((data) => (
+              <DataPemesanan
+                user={getDataLocalStorage()}
+                data={data}
+                handleShowModal={handleShowModal}
+              />
+            ))}
         </div>
         <div>
           {showModal ? (
@@ -64,8 +100,8 @@ const Pemesanan = () => {
                           ></path>
                         </svg>
                         <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                          Pesanan atas nama Dahlia sudah dikonfirmasi <br />{" "}
-                          Silahkan Tunggu untuk pembayaran.
+                          Pesanan atas nama {getDataLocalStorage().nama} sudah
+                          dikonfirmasi <br /> Silahkan Tunggu untuk pembayaran.
                         </h3>
                       </div>
                     </div>

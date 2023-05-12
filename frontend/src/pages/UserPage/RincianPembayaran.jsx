@@ -1,53 +1,77 @@
 import Sidebar from "../../components/Sidebar";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { DataContext } from "../../context/DataContext";
 
 const RincianPembayaran = () => {
   const [showModalCod, setShowModalCod] = useState(false);
+  const { data } = useContext(DataContext);
   // const [showModalCashlesh, setShowModalCashlesh] = useState(false);
 
-  const openModalCod = () => {
-    setShowModalCod(true);
-    console.log(showModalCod);
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  // const openModalCashlesh = () => {
-  //   setShowModalCashlesh(true);
-  //   console.log(showModalCashlesh);
-  // };
+    const dataPemprosesan = {
+      namaUser: data.namaUser,
+      namaDriver: data.namaDriver,
+      alamatUser: data.alamatUser,
+      alamat: data.namaTempat,
+      harga: data.harga,
+      status: "Belum Dikonfirmasi",
+      metodePembayaran: "COD",
+    };
+
+    const response = await fetch("/api/user/pemprosesan", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dataPemprosesan),
+    });
+
+    const json = response.json();
+    console.log(json);
+
+    if (!response.ok) {
+      console.log(json.message);
+    }
+
+    if (response.ok) {
+      setShowModalCod(true);
+    }
+  };
 
   return (
     <div className="flex bg-emerald-800">
       <Sidebar />
       <div className="w-screen h-screen">
         <div className="flex items-center justify-center w-full h-full p-5">
-          <div className="flex flex-col gap-5">
+          <form
+            action=""
+            method="post"
+            className="flex flex-col gap-5 w-full px-60"
+            onSubmit={handleSubmit}
+          >
             <div className="flex flex-col gap-5">
               <h1 className="text-black font-poppins text-lg md:text-4xl font-medium text-center ">
                 Rincian pembayaran
               </h1>
               <h1 className=" text-black font-poppins text-sm md:text-xl">
-                Nama Driver: Arhan
+                Nama Driver: {data.namaDriver}
               </h1>
               <h1 className=" text-black font-poppins text-sm md:text-xl">
                 Jadwal Pengambilan Sampah: <br /> Senin, Rabu, & Jumat
               </h1>
               <h1 className=" text-black font-poppins text-sm md:text-xl">
-                Total Pembayaran: Rp. 25.000
+                Total Pembayaran: {data.harga}
               </h1>
               <h1 className=" text-black font-poppins text-sm md:text-xl">
-                Alamat : Jl. T Nyak Arief No. 441, Kopelma Darussalam, Kec.Syiah
-                Kuala, Kota Banda
+                Alamat : {data.alamatUser}
               </h1>
             </div>
             <div className="flex flex-row gap-2 justify-end items-end">
-              <button
-                class="bg-emerald-700 w-28 md:w-36 text-sm md:text-xl rounded-xl h-10 font-poppins font-medium text-black hover:bg-emerald-400"
-                onClick={openModalCod}
-              >
+              <button class="bg-emerald-700 w-28 md:w-36 text-sm md:text-xl rounded-xl h-10 font-poppins font-medium text-black hover:bg-emerald-400">
                 COD
               </button>
             </div>
-          </div>
+          </form>
         </div>
         {showModalCod ? (
           <>

@@ -9,15 +9,23 @@ import { useDataPembayaran } from "../../hooks/useDataPembayaran";
 const Pembayaran = () => {
   const { dataPembayaran, dispatch } = useDataPembayaran();
 
+  const getDataLocalStorage = () => {
+    const data = localStorage.getItem("user");
+    const dataParse = JSON.parse(data);
+    return dataParse;
+  };
+
   // Fungsi Untuk mem Fetching datas dari DB ke FE
   useEffect(() => {
     const fetchData = async () => {
       // Variable Response Untuk menampung datas dari localhost BE
-      const response = await fetch("/api/wod/pembayaran");
+      const response = await fetch(
+        "/api/user/pembayaran/" + getDataLocalStorage().nama
+      );
       // Kemudian di Ubah menjadi Data JSON
       const json = await response.json();
 
-      // Jika Response OK maka datas akan di set
+      // Jika REsponse OK maka datas akan di set
       if (response.ok) {
         dispatch({ type: "SET_DATAPEMBAYARAN", payload: json });
       }
@@ -31,7 +39,7 @@ const Pembayaran = () => {
   return (
     <div className="bg-emerald-800 flex">
       <Sidebar />
-      <div className="w-screen h-screen">
+      <div className="w-screen h-screen overflow-y-scroll">
         <KoinPembayaran />
         <div className="flex flex-col gap-10 items-center justify-center px-5">
           {dataPembayaran &&

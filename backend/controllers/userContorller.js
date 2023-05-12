@@ -20,7 +20,7 @@ const loginUser = async (req, res) => {
         // Create Token After Save to the DB
         const token = createToken(user._id)
 
-        res.status(200).json({ email, nama: user.nama, id: user._id, no_hp: user.no_hp, alamat: user.alamat, role: user.role, token })
+        res.status(200).json({ email, nama: user.nama, id: user._id, no_hp: user.no_hp, alamat: user.alamat, tempatKerja: user.tempatKerja, harga: user.harga, role: user.role, token })
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -43,10 +43,10 @@ const signupUser = async (req, res) => {
 }
 
 const signupDriver = async (req, res) => {
-    const { nama, email, password, role, no_hp, alamat, tempat_lahir, tanggal_lahir, KTP, SIM, STNK, SKCK } = req.body;
+    const { nama, email, password, role, no_hp, alamat, tempat_lahir, tanggal_lahir, tempatKerja, harga, KTP, SIM, STNK, SKCK } = req.body;
 
     try {
-        const user = await User.signupDriver(nama, email, password, role, no_hp, alamat, tempat_lahir, tanggal_lahir, KTP, SIM, STNK, SKCK)
+        const user = await User.signupDriver(nama, email, password, role, no_hp, alamat, tempat_lahir, tanggal_lahir, tempatKerja, harga, KTP, SIM, STNK, SKCK)
 
         // Create Token After Save to the DB
         const token = createToken(user._id)
@@ -155,6 +155,7 @@ const postPemesananData = async (req, res) => {
         res.status(400).json({ error: error.message })
     }
 }
+
 
 module.exports = {
     loginUser,

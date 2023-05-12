@@ -26,7 +26,7 @@ const AboutUsPage = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="w-screen h-full flex flex-col gap-8 items-center md:items-start md:mx-32 justify-center">
+        <div className="w-full h-full flex flex-col gap-8 items-center md:items-start md:p-10 justify-center">
           <div>
             <h1 className="text-2xl md:text-6xl font-bold font-serif text-white">
               WOD UNTUK SEMUA
@@ -63,12 +63,12 @@ const AboutUsPage = () => {
       <div className=" bg-emerald-800 flex flex-col md:flex-row gap-10 justify-center md:justify-between md:px-96 items-center h-[40rem]">
         <div className="flex items-center md:items-start justify-center flex-col gap-10">
           <div>
-            <h1 className="text-2xl md:text-6xl md:text-left text-black font-serif font-bold">
+            <h1 className="text-2xl md:text-4xl md:text-left text-black font-serif font-bold">
               Nilai yang Layak untuk Membantu
             </h1>
           </div>
           <div>
-            <h1 className="text-center md:text-left md:text-2xl text-black font-medium font-serif">
+            <h1 className="text-center md:text-left md:text-xl text-black font-medium font-serif">
               Sebuah Nilai yang membuat seseorang merasa untuk diakui dan
               dihargai. Ketika seseorang telah diakui dan dihargai hingga lupa
               dengan sekitarnya. <br /> WOD membantu orang untuk membangun nilai
@@ -122,14 +122,14 @@ const AboutUsPage = () => {
             ></div>
           </div>
         </div>
-        <div className="flex items-center md:items-start justify-center flex-col gap-10">
+        <div className="flex items-center w-fit md:items-start justify-center flex-col gap-10">
           <div>
-            <h1 className="text-2xl md:text-6xl md:text-left text-center text-black font-serif font-bold">
+            <h1 className="text-2xl md:text-4xl md:text-left text-center text-black font-serif font-bold">
               Perubahan Besar dimulai dari Potongan Ide
             </h1>
           </div>
           <div>
-            <h1 className="text-center md:text-left md:text-2xl text-black font-medium font-serif">
+            <h1 className="text-center md:text-left md:text-xl text-black font-medium font-serif">
               Cara terbaik untuk menemukan suatu yang inovatif adalah dengan
               melihat potongan - potongan ide yang di kembangkan menjadi sebuah
               potensi yang besar. Kemudian memberikan kebebasan terhadap orang -

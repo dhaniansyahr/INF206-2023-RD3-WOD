@@ -99,7 +99,7 @@ const AkunSaya = () => {
     <div className="bg-emerald-800 flex">
       <Sidebar />
       {user && (
-        <div className="flex flex-col gap-14 items-center p-10 md:mt-20 w-full h-fit">
+        <div className="flex flex-col gap-14 items-center p-10 w-full h-fit">
           <div className="w-full h-fit">
             <label
               htmlFor="Nama"
@@ -111,7 +111,7 @@ const AkunSaya = () => {
               type="text"
               id="disabled-input-2"
               aria-label="disabled input 2"
-              className="bg-emerald-800 border w-fit h-fit border-gray-400 text-white text-xs md:text-xl rounded-lg block p-2.5 cursor-not-allowed font-poppins"
+              className="bg-emerald-800 border w-full h-fit border-gray-400 text-white text-xs md:text-xl rounded-lg block p-2.5 cursor-not-allowed font-poppins"
               value={user.nama}
               disabled
               readOnly
@@ -125,9 +125,9 @@ const AkunSaya = () => {
               >
                 Email
               </label>
-              <div className="flex w-fit flex-row gap-5">
+              <div className="flex w-full flex-row gap-5">
                 <input
-                  className="relative bg-emerald-800 border border-gray-400 text-white text-xs md:text-xl rounded-lg w-fit h-fit p-2.5 font-poppins"
+                  className="relative bg-emerald-800 border border-gray-400 text-white text-xs md:text-xl rounded-lg w-full h-fit p-2.5 font-poppins"
                   type="email"
                   placeholder={user.email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -147,12 +147,12 @@ const AkunSaya = () => {
               >
                 Password
               </label>
-              <div className="flex w-fit flex-row gap-5">
+              <div className="flex w-full flex-row gap-5">
                 <input
                   type="password"
                   id="disabled-input-2"
                   aria-label="disabled input 2"
-                  className="bg-emerald-800 border border-gray-400 text-white text-xs md:text-xl rounded-lg w-fit h-fit p-2.5 font-poppins"
+                  className="bg-emerald-800 border border-gray-400 text-white text-xs md:text-xl rounded-lg w-full h-fit p-2.5 font-poppins"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                 />
@@ -170,11 +170,11 @@ const AkunSaya = () => {
               >
                 No. Hp
               </label>
-              <div className="flex w-fit flex-row gap-5">
+              <div className="flex w-full flex-row gap-5">
                 <input
                   type="text"
                   placeholder={user.no_hp}
-                  className="bg-emerald-800 border border-gray-400 text-white text-xs md:text-xl rounded-lg block w-fit h-fit p-2.5 cursor-not-allowed font-poppins"
+                  className="bg-emerald-800 border border-gray-400 text-white text-xs md:text-xl rounded-lg block w-full h-fit p-2.5 cursor-not-allowed font-poppins"
                   onChange={(e) => setNo_hp(e.target.value)}
                   value={no_hp}
                 />
@@ -192,7 +192,7 @@ const AkunSaya = () => {
               >
                 Alamat
               </label>
-              <div className="flex w-fit flex-row gap-5">
+              <div className="flex w-full flex-row gap-5">
                 <textarea
                   id="message"
                   rows="4"

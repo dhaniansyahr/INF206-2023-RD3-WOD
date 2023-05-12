@@ -2,7 +2,7 @@
 import { useLogin } from "../hooks/useLogin";
 import { useState } from "react";
 import { WavyLink } from "react-wavy-transitions";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 // Image
 import { Link } from "react-router-dom";
@@ -12,15 +12,15 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, isLoading } = useLogin();
-  const changePage = useNavigate();
+  // const changePage = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await login(email, password);
+    await login(email, password);
     console.log(email, password);
-    if (!res) {
-      changePage("/Pemesanan");
-    }
+    // if (!res) {
+    //   changePage("/Pemesanan");
+    // }
   };
   return (
     <div className="p-5 w-screen h-screen flex items-center justify-center bg-emerald-800">

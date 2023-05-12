@@ -29,6 +29,14 @@ export const useLogin = () => {
             // Update the Auth Context
             dispatch({ type: 'LOGIN', payload: json })
 
+            if (json.role === 'user') {
+                window.location.href = '/pemesanan'
+            } else if (json.role === 'admin') {
+                window.location.href = '/dashboard'
+            } else if (json.role === 'driver') {
+                window.location.href = '/pemesanan-driver'
+            }
+
             setIsLoading(false)
         }
     }

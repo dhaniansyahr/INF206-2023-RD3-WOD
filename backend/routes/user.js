@@ -12,8 +12,11 @@ const {
     signupDriver,
 } = require('../controllers/userContorller')
 
-const { getPembayaranData, postPembayaranData } = require('../controllers/pembayaranController')
+const { getPembayaranData, postPembayaranData, getPembayaranDataByName } = require('../controllers/pembayaranController')
 
+const { getPesanDataByTempatKerja, postPesanData, getPesanDataByName, updatePesanData } = require('../controllers/dataPesanController')
+
+const { getPemprosesan, postPemprosesan, updatePemprosesan, getPemprosesanByName, getRiwayatByName } = require('../controllers/pemprosesanController')
 
 
 const router = express.Router()
@@ -43,9 +46,30 @@ router.get('/pemesanan/', getPemesananData);
 router.post('/pemesanan', postPemesananData)
 
 // GET All Data Pembayaran
-router.get('/pembayaran/', getPembayaranData);
+router.get('/pembayaran/:namaUser', getPembayaranDataByName);
 
 // POST Data Pembayaran
 router.post('/pembayaran', postPembayaranData)
+
+// GET Data Pesan By Tempat Kerja
+router.get('/pesan/:tempatKerja', getPesanDataByTempatKerja);
+router.get('/pesan-nama/:nama', getPesanDataByName);
+
+// Update Data Pesan
+router.patch('/pesan/:nama', updatePesanData)
+
+// POST Data Pesan
+router.post('/pesan', postPesanData)
+
+// GET Data Pemprosesan
+router.get('/pemprosesan/', getPemprosesan);
+router.get('/pemprosesan/:namaUser', getPemprosesanByName)
+router.get('/riwayat-pemesanan/:namaDriver', getRiwayatByName)
+
+// POST Data Pemprosesan
+router.post('/pemprosesan', postPemprosesan)
+
+// UPDATE Data Pemprosesan
+router.patch('/pemprosesan/:namaUser', updatePemprosesan)
 
 module.exports = router

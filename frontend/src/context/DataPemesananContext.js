@@ -8,6 +8,10 @@ export const dataPemesanantaReducer = (state, action) => {
             return {
                 dataPemesanan: action.payload
             }
+        case 'CREATE_DATAPEMESANAN':
+            return {
+                dataPemesanan: [action.payload, ...state.dataPemesanan]
+            }
         default:
             return state
     }

@@ -7,8 +7,22 @@ const pembayaranDataSchema = new mongoose.Schema({
     },
     deskripsiTempat: {
         type: String,
-        required: true
-    }
+    },
+    namaDriver: {
+        type: String,
+    },
+    harga: {
+        type: String,
+    },
+    namaUser: {
+        type: String,
+    },
+    alamatUser: {
+        type: String,
+    },
+    metodePembayaran: {
+        type: String,
+    },
 }, { timestamps: true })
 
 module.exports = mongoose.model('pembayaranData', pembayaranDataSchema);

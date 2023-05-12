@@ -1,5 +1,6 @@
 // Component
 import Navbar from "../../components/LandingPage/Navbar";
+import { WavyLink } from "react-wavy-transitions";
 
 // Image
 import bgImage from "../../assets/images/LandingPage/8.jpg";
@@ -36,9 +37,11 @@ const PartnerWithUsPage = () => {
             </div>
           </div>
           <div>
-            <button className="bg-emerald-800 hover:bg-emerald-600 w-[15rem] h-[3rem] text-white hover:text-black font-medium italic rounded-full text-base">
-              Daftar Sekarang
-            </button>
+            <WavyLink to="/signup-driver" color="#065F46">
+              <button className="bg-emerald-800 hover:bg-emerald-600 w-[15rem] h-[3rem] text-white hover:text-black font-medium italic rounded-full text-base">
+                Daftar Sekarang
+              </button>
+            </WavyLink>
           </div>
         </div>
       </div>
