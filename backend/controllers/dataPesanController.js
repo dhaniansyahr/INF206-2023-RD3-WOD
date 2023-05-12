@@ -5,7 +5,8 @@ const getPesanDataByTempatKerja = async (req, res) => {
     const { tempatKerja } = req.params;
 
     try {
-        const data = await Pesan.find({ tempatKerja: tempatKerja, status: false }).sort({})
+        const data = await Pesan.find({ tempatKerja: tempatKerja, status: false }).sort({});
+
         res.status(200).json(data)
     } catch (error) {
         res.status(404).json({ message: error.message })

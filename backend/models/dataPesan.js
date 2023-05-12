@@ -20,3 +20,4 @@ const dataPesanSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 module.exports = mongoose.model('dataPesan', dataPesanSchema);
+
